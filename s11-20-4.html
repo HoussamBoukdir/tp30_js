@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcul de la différence entre deux dates</title>
+</head>
+<body>
+    <label>
+         date de debut : <input type="date" id="date1">
+    </label>
+    <br>
+    <label>
+        date de fin : <input type="date" id="date2">
+    </label>
+    <br>
+    <input type="button" value="Calculer la différence" onclick="calculerDifference()">
+    <div id="resultat"></div>
+
+    <script>
+        function calculerDifference() {
+            let date1 = new Date(document.getElementById("date1").value);
+            let date2 = new Date(document.getElementById("date2").value);
+            
+            // Calcul de la différence en millisecondes
+            let differenceEnMs = Math.abs(date2 - date1);
+            
+            // Conversion de la différence en jours
+            let differenceEnJours = Math.ceil(differenceEnMs / (1000 * 60 * 60 * 24));
+            
+            document.getElementById("resultat").innerText = "La différence est de " + differenceEnJours + " jours.";
+        }
+    </script>
+</body>
+</html>
